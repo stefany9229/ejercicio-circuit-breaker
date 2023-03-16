@@ -21,7 +21,7 @@ public class UserService {
 
     public User findById(Integer id){
         User user = userRepository.stream().filter(_user -> Objects.equals(_user.getId(), id)).findFirst().orElse(null);
-        SubscriptionDTO subscriptionDTO = subscriptionRepository.findByUserId(id,true);
+        SubscriptionDTO subscriptionDTO = subscriptionRepository.findByUserId(id,false);
         if (user != null)
             user.setSubscription(subscriptionDTO);
 
